@@ -16,4 +16,4 @@
 /tmp
 
 .DS_Store
-vender/bundle
+vendor/bundle
