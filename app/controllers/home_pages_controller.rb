@@ -9,6 +9,15 @@ class HomePagesController < ApplicationController
     @result_question = json_question.parse()
     @result_question = @result_question["questions"]
 
+    @result_user = []
+    @result_question.each do |question|
+    user_name = question["display_name"]
+    url_user = 'https://teratail.com/api/users/' + user_name
+    html_user = open(url_user).read
+    json_user = JSON.parser.new(html_user)
+    user_photo = json_user.parse()
+    @result_user.push(user_photo["user"]["photo"])
+    end
 
     question_id = []
     url_answer = []

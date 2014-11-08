@@ -1,31 +1,51 @@
-<h3>APIからのデータ</h3>
-<div class="mypage">
-  <div id = "username">
-    <p>ユーザの名前</p>
+<div id="container">
+  <header>
+    <h1>Teratailまとめ</h1>
+  </header>
+  <div id="categoly">
+    <p>カテゴリー</p>
+    <ul>
+      <li>初心者</li>
+      <li>中級者</li>
+      <li>上級者</li>
+    </ul>
   </div>
-  <div id = "history">
-    <canvas width="400" height="300" id="footmark"></canvas>
-      <%= javascript_tag do %>
-        $("#footmark").click(function() {
-        alert("クリックしました");
-        return false;
-      });
+  
+  <div id="my">
+    <div class="mypage">
+      <div id = "username">
+        <p>ユーザの名前</p>
+      </div>
+      <div id = "history">
+        <canvas width="400" height="300" id="footmark"></canvas>
+          <%= javascript_tag do %>
+            $("#footmark").click(function() {
+            alert("クリックしました");
+            return false;
+          });
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+  <div id="summary">
+    <% index = 0 %>
+    <% @result_question.zip(@result_answer).each do |question,answer| %>
+      <div class="question">
+        <h2 class="title"><%= question["title"] %><br>
+        <%= link_to "Teratailリンク", "https://teratail.com/questions/"+question["id"].to_s %></h2>
+        <div class="contents">
+          PV：<%= question["count_pv"] %><br>
+          タグ：<%= question["tags"] %><br>
+          質問者：<%= question["display_name"] %>
+          <%= image_tag(@result_user[0]) %>
+          <br>
+          質問文：<%= simple_format(question["body"]) %><br>
+          回答者：<%= answer["display_name"] %>
+          <%= image_tag(@result_user[0]) %><br>
+          回答文：<%= simple_format(answer["body"]) %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
-
-
-<h3>result</h3>
-<% index = 0 %>
-<% @result_question.zip(@result_answer).each do |question,answer| %>
-  <% index += 1 %>
-  <%= link_to question["title"], "https://teratail.com/questions/"+question["id"].to_s %><br>
-  PV<%= index %>：<%= question["count_pv"] %><br>
-  タグ<%= index %>：<%= question["tags"] %><br>
-  質問者<%= index %>：<%= question["display_name"] %><br>
-  質問文<%= index %>：<%= question["body"] %><br>
-  回答者<%= index %>：<%= answer["display_name"] %><br>
-  回答文<%= index %>：<%= answer["body"] %>
-  <Hr>
-<% end %>
-

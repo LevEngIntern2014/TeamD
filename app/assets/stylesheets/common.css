@@ -1,0 +1,63 @@
+#container {
+  font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+}
+
+header {
+  text-align: center;
+  font-size: 35px;
+  padding: 30px;
+}
+
+#categoly {
+  float: left;
+  width: 8%;
+  margin: 10px;
+  text-align: center;
+}
+#categoly li:hover{
+  background-color: #dcdcdc;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#categoly li:first-child {
+  font-weight: 600;
+  background-color: #dcdcdc;
+}
+
+#summary {
+  float: left;
+  width: 50%;
+  margin-left: 35px;
+}
+
+.question {
+  border: solid 1px #696969;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.title {
+  padding: 10px
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+.contents p{
+  width: 100%;
+  margin: 10px;
+
+}
+
+#my {
+  float: right;
+  width: 31%;
+  border: solid 1px #696969;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 25px;
+}
+
