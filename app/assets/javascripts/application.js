@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+function footmarkdata(){
+	var now = new Date(); 
+	var key = now.getMonth() + "/" + now.getDate();
+	alert(key);
+}

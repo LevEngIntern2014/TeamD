@@ -1,5 +1,18 @@
-<h2>APIからのデータ</h2>
-
+<h3>APIからのデータ</h3>
+		<div class="mypage">
+			<div　id = "username">
+				<p>ユーザの名前</p>
+			</div>
+			<div id = "history">
+				<canvas width="400" height="300" id="footmark"></canvas>
+				<%= javascript_tag do %>
+				  $("#footmark").click(function() {
+				    alert("クリックしました");
+				    return false;
+				  });
+				<% end %>
+			</div>
+		</div>
 <%= @result[1].keys %>
 
 <h3>result</h3>
@@ -9,3 +22,4 @@
   タグ<%= index %>：<%= date["tags"] %><br>
   本文<%= index %>：<%= date["body"] %><br><br>
 <% end %>
+
