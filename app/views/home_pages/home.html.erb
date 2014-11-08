@@ -1,2 +1,11 @@
-<h3>APIからのデータ</h3>
-<%= @result %>
+<h2>APIからのデータ</h2>
+
+<%= @result[1].keys %>
+
+<h3>result</h3>
+<% @result.each.with_index(1) do |date,index| %>
+  タイトル<%= index %>：<%= date["title"] %><br>
+  PV<%= index %>：<%= date["count_pv"] %><br>
+  タグ<%= index %>：<%= date["tags"] %><br>
+  本文<%= index %>：<%= date["body"] %><br><br>
+<% end %>

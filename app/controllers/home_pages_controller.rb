@@ -5,8 +5,8 @@ class HomePagesController < ApplicationController
   def home    
     html = open('https://teratail.com/api/questions?limit=100$sort=new').read
     json = JSON.parser.new(html)
-    puts json.class
-    @result =  json.parse()
+    @result = json.parse()
+    @result = @result["questions"]
+    #@parsed = hash
   end
 end
-
