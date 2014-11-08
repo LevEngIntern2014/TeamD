@@ -3,7 +3,7 @@ $(function() {
   $(".answer").hide();
   var flg = "close";
   $(".title").click(function(){
-    $(".pv").click().next("question").next(".answer").click();
+    $(".pv").click().next(".question").next(".answer").click();
   });
   $(".pv").click(function() {
     $(this).next(".question").slideToggle().next(".answer").slideToggle();
