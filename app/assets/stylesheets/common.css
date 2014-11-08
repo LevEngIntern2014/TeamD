@@ -1,0 +1,20 @@
+#summary {
+  width: 600px;
+  margin: 100px;
+  background-color: #696969;
+}
+
+.title {
+  padding: 10px
+}
+
+.title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contents {
+  width: 500px;
+  margin: 10px;
+
+}
