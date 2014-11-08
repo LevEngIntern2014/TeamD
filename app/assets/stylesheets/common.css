@@ -46,7 +46,12 @@ header {
   text-decoration: underline;
 }
 
-.contents p{
+.pv {
+  text-align: right;
+  margin-right: 10px;
+  color: #696969;
+}
+.contents {
   width: 100%;
   margin: 10px;
 
