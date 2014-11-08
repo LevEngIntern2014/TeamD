@@ -31,11 +31,15 @@ header {
   margin-left: 35px;
 }
 
-.question {
+.topic {
   border: solid 1px #696969;
   border-radius: 10px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+span {
+  color: #ff69b4; 
 }
 
 .title {
@@ -51,10 +55,15 @@ header {
   margin-right: 10px;
   color: #696969;
 }
-.contents {
-  width: 100%;
+.question {
   margin: 10px;
+  padding-bottom:10px;
+}
 
+.answer {
+  margin: 10px;
+  padding-top:10px;
+  border-top: 1px solid #dcdcdc;
 }
 
 #my {
