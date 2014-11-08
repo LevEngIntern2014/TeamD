@@ -1,25 +1,31 @@
 <h3>APIからのデータ</h3>
-		<div class="mypage">
-			<div　id = "username">
-				<p>ユーザの名前</p>
-			</div>
-			<div id = "history">
-				<canvas width="400" height="300" id="footmark"></canvas>
-				<%= javascript_tag do %>
-				  $("#footmark").click(function() {
-				    alert("クリックしました");
-				    return false;
-				  });
-				<% end %>
-			</div>
-		</div>
-<%= @result[1].keys %>
+<div class="mypage">
+  <div id = "username">
+    <p>ユーザの名前</p>
+  </div>
+  <div id = "history">
+    <canvas width="400" height="300" id="footmark"></canvas>
+      <%= javascript_tag do %>
+        $("#footmark").click(function() {
+        alert("クリックしました");
+        return false;
+      });
+    <% end %>
+  </div>
+</div>
+
 
 <h3>result</h3>
-<% @result.each.with_index(1) do |date,index| %>
-  タイトル<%= index %>：<%= date["title"] %><br>
-  PV<%= index %>：<%= date["count_pv"] %><br>
-  タグ<%= index %>：<%= date["tags"] %><br>
-  本文<%= index %>：<%= date["body"] %><br><br>
+<% index = 0 %>
+<% @result_question.zip(@result_answer).each do |question,answer| %>
+  <% index += 1 %>
+  <%= link_to question["title"], "https://teratail.com/questions/"+question["id"].to_s %><br>
+  PV<%= index %>：<%= question["count_pv"] %><br>
+  タグ<%= index %>：<%= question["tags"] %><br>
+  質問者<%= index %>：<%= question["display_name"] %><br>
+  質問文<%= index %>：<%= question["body"] %><br>
+  回答者<%= index %>：<%= answer["display_name"] %><br>
+  回答文<%= index %>：<%= answer["body"] %>
+  <Hr>
 <% end %>
 
