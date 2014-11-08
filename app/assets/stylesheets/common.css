@@ -75,3 +75,8 @@ span {
   margin-right: 20px;
 }
 
+#loadimg {
+    padding-top: 50px;
+    clear: both;
+    text-align: center;
+}
