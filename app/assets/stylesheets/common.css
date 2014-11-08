@@ -6,6 +6,7 @@ header {
   text-align: center;
   font-size: 35px;
   padding: 30px;
+  color: #F6003D;
 }
 
 #categoly {
@@ -24,6 +25,10 @@ li {
   cursor: pointer;
   text-decoration: underline;
 }
+#categoly p{
+  border-bottom: 1px solid #5E5473;
+  margin-bottom: 10px;
+}
 
 #categoly li:first-child {
   font-weight: 600;
@@ -37,7 +42,7 @@ li {
 }
 
 .topic {
-  border: solid 1px #696969;
+  border: solid 1px #F2B33F;
   border-radius: 10px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -75,7 +80,7 @@ span {
   width: 430px;
   position: fixed;
   right: 15px;
-  border: solid 1px #696969;
+  border: solid 1px #2EB8AC;
   border-radius: 10px;
   padding: 10px;
   margin-right: 20px;
