@@ -45,11 +45,11 @@ li {
   border: solid 1px #F2B33F;
   border-radius: 10px;
   margin-bottom: 20px;
-  cursor: pointer;
 }
 
-span {
-  color: #ff69b4; 
+.index {
+  color: #ff69b4;
+  font-size: 20px;
 }
 
 .title {
@@ -58,13 +58,29 @@ span {
 
 .title:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .pv {
   text-align: right;
   margin-right: 10px;
-  color: #696969;
+  color: #dcdcdc;
 }
+
+.pv:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.user {
+  color: #dcdcdc;
+  font-size: 15px;
+}
+
+.user:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .question {
   margin: 10px;
   padding-bottom:10px;
