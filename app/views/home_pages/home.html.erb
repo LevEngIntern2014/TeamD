@@ -1,6 +1,6 @@
   <div id="container">
     <div id='header'>
-      <h1>Teratailまとめ</h1>
+      <h1>まとめtail</h1>
     </div>
   <div id="categoly">
     <p>カテゴリー</p>
@@ -13,11 +13,8 @@
   
   <div id="my">
     <div class="mypage">
-      <div id = "username">
-        <p>ユーザの名前</p>
-      </div>
       <div id = "history">
-        <canvas width="250" height="175" id="footmark"></canvas>
+        <canvas width="270" height="185" id="footmark"></canvas>
           <%= javascript_tag do %>
             $("#footmark").click(function() {
             alert("クリックしました");
@@ -64,7 +61,7 @@
       <div class="topic">
         <h2 class="title"><%= question["title"] %></h2>
         <p class="tag"><%= question["tags"] %></p>
-        <p class="pv">PV:<%= link_to question["count_pv"], "https://teratail.com/questions/"+question["id"].to_s %></p><br>
+        <p class="pv"><%= link_to "PV:"+question["count_pv"].to_s, "https://teratail.com/questions/"+question["id"].to_s %></p><br>
         <div></div>
         <div class="content">
         <p><span class="index">Question</span><span> by </span><span class="user"><%= question["display_name"] %></span><span><%= simple_format(question["body"]) %></span></p>
