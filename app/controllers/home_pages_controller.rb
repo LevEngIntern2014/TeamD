@@ -3,6 +3,9 @@ require 'json'
 
 class HomePagesController < ApplicationController
   def home    
+    
+    @test = "test"
+
     url_question = 'https://teratail.com/api/questions?limit=10$sort=new'
     html_question = open(url_question).read
     json_question = JSON.parser.new(html_question)
@@ -11,12 +14,12 @@ class HomePagesController < ApplicationController
 
     @result_user = []
     @result_question.each do |question|
-    user_name = question["display_name"]
-    url_user = 'https://teratail.com/api/users/' + user_name
-    html_user = open(url_user).read
-    json_user = JSON.parser.new(html_user)
-    user_photo = json_user.parse()
-    @result_user.push(user_photo["user"]["photo"])
+      user_name = question["display_name"]
+      url_user = 'https://teratail.com/api/users/' + user_name
+      html_user = open(url_user).read
+      json_user = JSON.parser.new(html_user)
+      user_photo = json_user.parse()
+      @result_user.push(user_photo["user"]["photo"])
     end
 
     question_id = []

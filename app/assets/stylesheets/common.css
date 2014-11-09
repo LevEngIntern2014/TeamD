@@ -1,63 +1,132 @@
 #container {
-  font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+  font-family: 'Quicksand', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", 'メイリオ' , Meiryo , Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
-header {
-  text-align: center;
-  font-size: 35px;
-  padding: 30px;
+#header {
+  font-size: 25px;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #474D57 0%, #3D424A 100%)
+}
+
+#header h1 {
+  font-weight: normal;
 }
 
 #categoly {
   float: left;
-  width: 8%;
-  margin: 10px;
+  width: 90px;
+  margin: 15px;
   text-align: center;
 }
+
+li {
+  list-style: none;
+}
+
 #categoly li:hover{
-  background-color: #dcdcdc;
   cursor: pointer;
-  text-decoration: underline;
+  background-color: #f3f3f3;
+}
+#categoly p{
+  margin-bottom: 10px;
+  background-color: #f3f3f3;
+  font-weight: bold;
 }
 
 #categoly li:first-child {
-  font-weight: 600;
-  background-color: #dcdcdc;
+  color: #00a9c7;
 }
 
 #summary {
   float: left;
-  width: 50%;
-  margin-left: 35px;
+  width: 740px;
+  margin: 0 35px 0 35px;
+}
+#summary p {
+  margin: 0 20px 0 20px;
 }
 
-.question {
-  border: solid 1px #696969;
+.topic {
+  border: solid 1px #F2B33F;
   border-radius: 10px;
   margin-bottom: 20px;
-  cursor: pointer;
+}
+
+.index {
+  color: #ff69b4;
+  font-size: 20px;
 }
 
 .title {
-  padding: 10px
+  padding: 10px;
+}
+
+h2.title{
+  font-size: 20px;
 }
 
 .title:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
-.contents p{
-  width: 100%;
-  margin: 10px;
+.tag {
+  margin-left: 10px;
+  float: left;
+}
 
+.pv {
+  float: right;
+  margin-right: 10px;
+  padding: 0 5px 0 5px;
+  color: #000;
+  background-color: #f3f3f3;
+  border: 0;
+  border-radius: 15px;
+}
+
+.pv:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+}
+.user {
+  color: #dcdcdc;
+  font-size: 15px;
+}
+
+span {
+  color: #dcdcdc;
+  font-size: 15px;
+}
+
+.user:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.question {
+  margin: 10px;
+  padding-bottom:10px;
+}
+
+.answer {
+  margin: 10px;
+  padding-top:10px;
+  border-top: 1px solid #dcdcdc;
 }
 
 #my {
-  float: right;
-  width: 31%;
-  border: solid 1px #696969;
-  border-radius: 10px;
+  width: 280px;
+  position: fixed;
+  right: 15px;
+  border-left: solid 1px #2EB8AC;
   padding: 10px;
-  margin-right: 25px;
+  margin-right: 20px;
+  background-color: #f3f3f3;
+  border: 0;
+  border-radius: 5px;
 }
 

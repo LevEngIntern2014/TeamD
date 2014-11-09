@@ -6,32 +6,69 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   		<meta charset="utf-8">
-		<script type="text/javascript" src="./html5jp/excanvas/excanvas.js"></script>
-		<script type="text/javascript" src="./html5jp/graph/line.js"></script>
-		<script type="text/javascript" src="./script.js"></script>
-    <script type="text/css" src="./common.css"></script>
-    <script type="text/css" src="./reset.css"></script>
+		<script type="text/javascript" src="../../assets/javascripts/html5jp/excanvas/excanvas.js"></script>
+		<script type="text/javascript" src="../../assets/javascripts/html5jp/graph/line.js"></script>
+<!-- 		<script type="text/javascript" src="../../assets/javascripts/htmlCircle/excanvas/excanvas.js"></script>
+		<script type="text/javascript" src="../../assets/javascripts/htmlCircle/graph/circle.js"></script> -->
 		<script type="text/javascript">
-		window.onload = function() {
+		window.onload = function(){
+		//日付
+		  var now = new Date(); 
+		  var month = now.getMonth()+1;
+		  var date = now.getDate();
+		//テストデータ
+		localStorage.setItem(month + "/" + (date - 6),"20");
+		localStorage.setItem(month + "/" + (date - 5),"58");
+		localStorage.setItem(month + "/" + (date - 4),"40");
+		localStorage.setItem(month + "/" + (date - 3),"14");
+		localStorage.setItem(month + "/" + (date - 2),"38");
+		localStorage.setItem(month + "/" + (date - 1),"20");
+		localStorage.setItem(month + "/" + date,"0");//課題(ローカルストレージデータの受け渡し)
+		var max = 0;
+		for(var i = 0;i < localStorage.length; i++){
+			var j = localStorage.key(i);
+			if(max < Number(localStorage.getItem(j))) {
+				max = Number(localStorage.getItem(j));
+			}
+		}
+		max = max + 10;
 		  var lg = new html5jp.graph.line("footmark");
 		  if( ! lg ) { return; }
 		  var items = [
-		    ["足跡の数", 20, 58, 40, 14, 38, 20, 80],
+		    ["足跡の数",localStorage.getItem(month + "/" + (date - 6)),localStorage.getItem(month + "/" + (date - 5)),localStorage.getItem(month + "/" + (date - 4)),localStorage.getItem(month + "/" + (date - 3)),localStorage.getItem(month + "/" + (date - 2)),localStorage.getItem(month + "/" + (date - 1)),localStorage.getItem(month + "/" + date)],
 		  ];
 		  var params = {
-		    x: ["日時", "日", "月", "火", "水", "木", "金", "土"],//日付
-		    y: ["View数", 0, 20, 40, 60, 80, 100], 
-		    yMax: 100,
+		    x: ["日時", month + "/" + (date - 6), month + "/" + (date - 5), month + "/" + (date - 4), month + "/" + (date - 3),month + "/" + (date - 2), month + "/" + (date - 1), month + "/" + date],
+		    y: ["View数", 0, parseInt(max * 0.2), parseInt(max * 0.4), parseInt(max * 0.6), parseInt(max * 0.8), max], 
+		    yMax: max,
 		    yMin: 0,
 		    lineWidth: [1,2],
 		    dotRadius: [3,4],
 		    dotType: ["disc", "square"]
 		  };
 		  lg.draw(items, params);
+		  // var cg = new htmlCircle.graph.circle("sample");
+		  // if( ! cg ) { return; }
+		  // var items = [
+		  //   ["sample01", 150],
+		  //   ["sample02", 100],
+		  //   ["sample03", 80],
+		  //   ["sample04", 60],
+		  //   ["sample05", 30],
+		  //   ["sample06", 20],
+		  //   ["sample07", 10],
+		  //   ["sample08", 10],
+		  //   ["sample09", 10],
+		  //   ["sample10", 10],
+		  //   ["sample11", 10],
+		  //   ["sample12", 10]
+		  // ];
+		  // cg.draw(items);
 		};
 		</script>
 </head>
 <body>
+
 
 <%= yield %>
 

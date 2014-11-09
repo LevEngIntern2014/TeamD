@@ -1,7 +1,7 @@
-<div id="container">
-  <header>
-    <h1>Teratailまとめ</h1>
-  </header>
+  <div id="container">
+    <div id='header'>
+      <h1>Teratailまとめ</h1>
+    </div>
   <div id="categoly">
     <p>カテゴリー</p>
     <ul>
@@ -17,7 +17,7 @@
         <p>ユーザの名前</p>
       </div>
       <div id = "history">
-        <canvas width="400" height="300" id="footmark"></canvas>
+        <canvas width="250" height="175" id="footmark"></canvas>
           <%= javascript_tag do %>
             $("#footmark").click(function() {
             alert("クリックしました");
@@ -25,27 +25,52 @@
           });
         <% end %>
       </div>
+
+      <br>
+
+  	<div id = "tag">
+    <canvas id="pieArea" height="250" width="250"></canvas>
+      <script>
+      <!-- 円グラフ用データ -->
+        var pieData = [
+          {
+	          value: 70,
+	          color:"#CCCCCC",
+	          label: "PHP"
+	        },
+	        {
+	          value : 15,
+	          color : "#FF0066",
+	          label: "Ruby"
+	        },
+	        {
+	          value : 15,
+	          color : "#666666",
+	          label: "C++"
+	        }
+	      ];
+	    <!-- 円グラフ描画 -->
+	    var myPie = new Chart(document.getElementById("pieArea").getContext("2d")).Pie(pieData);
+	    </script>
+	  </div>
     </div>
   </div>
-  
+
+
+
   <div id="summary">
     <% index = 0 %>
     <% @result_question.zip(@result_answer).each do |question,answer| %>
-      <div class="question">
-        <h2 class="title"><%= question["title"] %><br>
-        <%= link_to "Teratailリンク", "https://teratail.com/questions/"+question["id"].to_s %></h2>
-        <div class="contents">
-          PV：<%= question["count_pv"] %><br>
-          タグ：<%= question["tags"] %><br>
-          質問者：<%= question["display_name"] %>
-          <%= image_tag(@result_user[0]) %>
-          <br>
-          質問文：<%= simple_format(question["body"]) %><br>
-          回答者：<%= answer["display_name"] %>
-          <%= image_tag(@result_user[0]) %><br>
-          回答文：<%= simple_format(answer["body"]) %>
+      <div class="topic">
+        <h2 class="title"><%= question["title"] %></h2>
+        <p class="tag"><%= question["tags"] %></p>
+        <p class="pv">PV:<%= link_to question["count_pv"], "https://teratail.com/questions/"+question["id"].to_s %></p><br>
+        <div></div>
+        <div class="content">
+        <p><span class="index">Question</span><span> by </span><span class="user"><%= question["display_name"] %></span><span><%= simple_format(question["body"]) %></span></p>
+         <p><span class="index">Answer</span><span> by </span><span class="user"><%= answer["display_name"] %></span><%= simple_format(answer["body"]) %></p>
         </div>
-      </div>
+        </div>
     <% end %>
   </div>
 </div>

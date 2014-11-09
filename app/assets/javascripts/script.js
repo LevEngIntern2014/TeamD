@@ -1,12 +1,16 @@
 $(function() {
-  $(".contents").hide();
+  $(".content").hide();
   var flg = "close";
   $(".title").click(function(){
-    $(this).next(".contents").slideToggle();
+    $("div").click();
+  });
+  $("div").click(function(){
+    $(this).next(".content").slideToggle();
       if(flg == "close"){
         flg = "open";
       }else{
         flg = "close";
       }
     });
-  });
+});
+
