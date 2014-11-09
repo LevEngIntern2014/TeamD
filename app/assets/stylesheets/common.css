@@ -15,6 +15,7 @@
 }
 
 #categoly {
+  position: fixed;
   float: left;
   width: 90px;
   margin: 15px;
@@ -42,16 +43,16 @@ li {
 #summary {
   float: left;
   width: 740px;
-  margin: 0 35px 0 35px;
+  margin: 0 35px 0 140px;
 }
 #summary p {
   margin: 0 20px 0 20px;
 }
 
 .topic {
-  border: solid 1px #F2B33F;
-  border-radius: 10px;
+  border-bottom: solid 1px #F2B33F;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 .index {
@@ -85,6 +86,15 @@ h2.title{
   background-color: #f3f3f3;
   border: 0;
   border-radius: 15px;
+}
+
+.pv a {
+  text-decoration: none;
+  color: #000;
+}
+
+.pv a:hover {
+  color: #fff;
 }
 
 .pv:hover {
